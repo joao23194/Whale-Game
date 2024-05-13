@@ -9,6 +9,7 @@ public class player : MonoBehaviour
     public float speed = 6.0f; //Velocidade de movimento, definível no Inspector
     public float jumpSpeed = 8.0f; //Velocidade de salto, definível no Inspector
     public float gravity = 20.0f; //Gravidade, definível no Inspector
+    public float RotSpeed = 5.0f;
 
     private Vector3 moveDirection = Vector3.zero; //Vector que controla a direcção do movimento
 
@@ -19,6 +20,7 @@ public class player : MonoBehaviour
 
     void Update()
     {
+
         if (characterController.isGrounded) //Se a personagem estiver no chão
         {
             // We are grounded, so recalculate
@@ -31,6 +33,11 @@ public class player : MonoBehaviour
             {
                 moveDirection.y = jumpSpeed; //Adicionar velocidade no eixo Y, que até ao momento está definido com 0(ver moveDirection)
             }
+
+            if(moveDirection != Vector3.zero){
+                Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, RotSpeed * Time.deltaTime);
+            }
         }
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
@@ -39,5 +46,11 @@ public class player : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    void MouseControl()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
