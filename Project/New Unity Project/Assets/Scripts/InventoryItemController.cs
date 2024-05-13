@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour
 {
-    ItemData item;
+    ItemData item;//item
     
     public Button RemoveButton;
 
