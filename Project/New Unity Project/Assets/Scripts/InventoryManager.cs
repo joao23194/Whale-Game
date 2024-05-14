@@ -8,7 +8,6 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
     public List<ItemData> Items = new List<ItemData>();
-
     public Transform ItemContent;
     public GameObject InventoryItem;
     public Toggle EnableRemove;
@@ -20,11 +19,42 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        // Reset all item quantities to their default values
+        ResetAllItemQuantities();
+    }
+
+    private void ResetAllItemQuantities()
+    {
+        foreach (var item in Resources.FindObjectsOfTypeAll<ItemData>()) //encontra todos os objetos do tipo ItemData para depois fazer reset ao valor
+        {
+            item.ResetQuantity();
+        }
     }
     public void Add(ItemData item)
     {
-        Items.Add(item);
+        //booleana para ver se o item foi adicionado
+        bool itemAdded = false;
+
+        foreach (var dupe in Items)
+        {
+            //verificar se o item tem o mesmo nome
+            if (dupe.itemName == item.itemName)
+            {
+                // aumentar a quantidade e mostrar que já existe mais do que um
+                dupe.quantity += item.defaultQtd;
+                itemAdded = true;
+                break;
+            }
+        }
+
+        // se o item ainda for único (não existe duplicados), adiciona um novo
+        if (!itemAdded)
+        {
+            Items.Add(item);
+        }
     }
+
     public void Remove(ItemData item)
     {
         Items.Remove(item);
@@ -62,12 +92,16 @@ public class InventoryManager : MonoBehaviour
 
     public void EnableItemsRemove()
     {
+        GameObject canvas = GameObject.Find("GUI");
+        GameObject removePanel = canvas.transform.Find("RemovePanel").gameObject;
+
         if (EnableRemove.isOn)
         {
             foreach (Transform item in ItemContent)
             {
                 item.Find("RemoveButton").gameObject.SetActive(true);
             }
+            removePanel.SetActive(true);
         }
         else
         {
@@ -75,6 +109,7 @@ public class InventoryManager : MonoBehaviour
             {
                 item.Find("RemoveButton").gameObject.SetActive(false);
             }
+            removePanel.SetActive(false);
         }
     }
 
