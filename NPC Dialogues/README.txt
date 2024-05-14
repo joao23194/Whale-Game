@@ -1,0 +1,1 @@
+Esta pasta irá conter os diálogos dos NPCs
