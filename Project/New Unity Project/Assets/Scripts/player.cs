@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class player : MonoBehaviour
 {
+
+    public static player Instance;
     CharacterController characterController; //Componente que controla o jogador
 
     public float speed = 6.0f; //Velocidade de movimento, definível no Inspector
@@ -11,11 +15,20 @@ public class player : MonoBehaviour
     public float gravity = 20.0f; //Gravidade, definível no Inspector
     public float RotSpeed = 5.0f;
 
+    public int Health;
+    public int Exp;
+    public TMP_Text HealthText;
+    public TMP_Text ExpText;
     private Vector3 moveDirection = Vector3.zero; //Vector que controla a direcção do movimento
 
     void Start()
     {
         characterController = GetComponent<CharacterController>(); //Ir buscar o componente ao gameObject
+    }
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
     void Update()
@@ -34,7 +47,8 @@ public class player : MonoBehaviour
                 moveDirection.y = jumpSpeed; //Adicionar velocidade no eixo Y, que até ao momento está definido com 0(ver moveDirection)
             }
 
-            if(moveDirection != Vector3.zero){
+            if (moveDirection != Vector3.zero)
+            {
                 Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, RotSpeed * Time.deltaTime);
             }
@@ -52,5 +66,10 @@ public class player : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void IncreaseHP(int HealValue)
+    {
+        Health += HealValue;
     }
 }

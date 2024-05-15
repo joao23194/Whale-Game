@@ -31,41 +31,48 @@ public class InventoryManager : MonoBehaviour
             item.ResetQuantity();
         }
     }
+    
     public void Add(ItemData item)
     {
-        //booleana para ver se o item foi adicionado
+        // Boolean to check if the item was added
         bool itemAdded = false;
 
         foreach (var dupe in Items)
         {
-            //verificar se o item tem o mesmo nome
+            // Check if the item has the same name
             if (dupe.itemName == item.itemName)
             {
-                // aumentar a quantidade e mostrar que já existe mais do que um
+                // Increase the quantity and show that there's more than one
                 dupe.quantity += item.defaultQtd;
                 itemAdded = true;
                 break;
             }
         }
 
-        // se o item ainda for único (não existe duplicados), adiciona um novo
+        // If the item is still unique (no duplicates), add a new one
         if (!itemAdded)
         {
             Items.Add(item);
         }
+
+        // Refresh the UI to show the updated inventory
+        ListItems();
     }
 
     public void Remove(ItemData item)
     {
         Items.Remove(item);
+        // Refresh the UI to show the updated inventory
+        ListItems();
     }
 
     public void ListItems()
     {
-        //Limpa o(s) objeto(s) ao iniciar o inventário
+        // Clear the objects at the start of the inventory
         foreach (Transform item in ItemContent)
         {
-            Destroy(item.gameObject);
+             item.gameObject.SetActive(false); //exisita um erro onde apaga a instância e assim era reconhecido como nulo ou não existente.
+             //Portanto, em vez de Destroy(), fiz SetActive(false)
         }
 
         foreach (var item in Items)
@@ -86,22 +93,16 @@ public class InventoryManager : MonoBehaviour
                 RemoveButton.gameObject.SetActive(true);
             SetInventoryItems();
         }
-
-
     }
 
     public void EnableItemsRemove()
     {
-        GameObject canvas = GameObject.Find("GUI");
-        GameObject removePanel = canvas.transform.Find("RemovePanel").gameObject;
-
         if (EnableRemove.isOn)
         {
             foreach (Transform item in ItemContent)
             {
                 item.Find("RemoveButton").gameObject.SetActive(true);
             }
-            removePanel.SetActive(true);
         }
         else
         {
@@ -109,7 +110,6 @@ public class InventoryManager : MonoBehaviour
             {
                 item.Find("RemoveButton").gameObject.SetActive(false);
             }
-            removePanel.SetActive(false);
         }
     }
 

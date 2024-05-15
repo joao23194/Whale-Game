@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,40 +6,18 @@ using TMPro;
 
 public class InventoryItemController : MonoBehaviour
 {
-    ItemData item;
+       ItemData item;
     public Button RemoveButton;
-    TMP_InputField inputField;
 
-    void Start()
-    {                                                                                                                                                                                                                                                                                                                                                                                                                              
-        // Find the TMP Input Field component
-        inputField = FindObjectOfType<TMP_InputField>();
-
-        if (inputField == null)
-        {
-            Debug.LogError("No TextMeshPro Input Field found!");
-        }
-    }
-
-    public void RemoveItem()
+     public void RemoveItem()
     {
         if (item != null)
         {
-            // Retrieve the text entered by the user
-            string text = inputField.text;
-
-            // Parse the text to an integer
-            int quantityToRemove;
-            if (!int.TryParse(text, out quantityToRemove))
-            {
-                Debug.LogError("Invalid input for quantity.");
-                return;
-            }
 
             if (item.quantity > 1)
             {
                 // If quantity is greater than 1, decrease the quantity
-                item.quantity -= quantityToRemove;
+                item.quantity--;
                 if (item.quantity <= 0)
                 {
                     item.quantity = 1;
@@ -49,7 +26,7 @@ public class InventoryItemController : MonoBehaviour
             else
             {
                 // If quantity is 1, remove the item from the inventory
-                InventoryManager.Instance.Remove(item);
+                InventoryManager.Instance.Remove(this.item);
                 Destroy(gameObject);
             }
         }
@@ -63,27 +40,20 @@ public class InventoryItemController : MonoBehaviour
     {
         item = newItem;
     }
-}
-=======
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 
-public class InventoryItemController : MonoBehaviour
-{
-    ItemData item;//item
-    
-    public Button RemoveButton;
-
-    public void RemoveItem(){
-        InventoryManager.Instance.Remove(item);
-        
-        Destroy(gameObject);
-    }
-
-    public void AddItem(ItemData newItem){
-        item = newItem;
+    public void ItemUsage()
+    {
+        switch (item.itemType)
+        {
+            case ItemData.ItemType.KitMedico:
+                player.Instance.IncreaseHP(item.Value);
+                item.quantity--;
+                break;
+        }
+        if (item.quantity <= 0)
+        {
+            InventoryManager.Instance.Remove(item);
+            Destroy(gameObject);
+        }
     }
 }
->>>>>>> 10362fada20fb5a04301176b02b25bf49290ebc3

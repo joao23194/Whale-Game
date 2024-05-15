@@ -7,12 +7,19 @@ public class ItemData : ScriptableObject
 {
     public int id;
     public string itemName;
+    public int Value;
     public int quantity;
     public int defaultQtd;
     public Sprite icon;
+    public ItemType itemType;
 
     public void ResetQuantity()
     {
         quantity = defaultQtd;
+    }
+
+    public enum ItemType{
+        KitMedico,
+        Artefacto
     }
 }
