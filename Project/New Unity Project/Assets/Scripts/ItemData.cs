@@ -20,6 +20,7 @@ public class ItemData : ScriptableObject
 
     public enum ItemType{
         KitMedico,
-        Artefacto
+        Artefacto,
+        Pista
     }
 }
