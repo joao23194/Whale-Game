@@ -331,6 +331,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/Scripts/AudioManager.cs"
 "Assets/Scripts/Dialogue.cs"
 "Assets/Scripts/InventoryItemController.cs"
 "Assets/Scripts/InventoryManager.cs"
@@ -339,6 +340,7 @@
 "Assets/Scripts/ItemPickup.cs"
 "Assets/Scripts/NpcBehaviour.cs"
 "Assets/Scripts/player.cs"
+"Assets/Scripts/Quest.cs"
 -langversion:9.0
 
 /deterministic

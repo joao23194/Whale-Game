@@ -54,6 +54,7 @@ public class InventoryItemController : MonoBehaviour
         {
             InventoryManager.Instance.Remove(item);
             Destroy(gameObject);
+            item.quantity = 1;
         }
     }
 }
