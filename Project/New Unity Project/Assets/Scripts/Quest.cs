@@ -9,6 +9,7 @@ public class Quest : MonoBehaviour
     public TextMeshProUGUI  objective;
     public Color completedColor;
     public Color activeColor;
+    public bool isQuestFinish = false;
     public GameObject questToActivate;
     // Start is called before the first frame update
     private void Start(){
@@ -16,7 +17,8 @@ public class Quest : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
-            FinishQuest();
+            if(isQuestFinish)
+                FinishQuest();
             gameObject.SetActive(false);
             questToActivate.SetActive(true);
         }
