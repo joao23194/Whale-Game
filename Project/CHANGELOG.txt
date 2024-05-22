@@ -26,3 +26,15 @@ Progresso até - 15/05
 - Inventário corrigido, itens são interagíveis e é possível adicionar e remover. Ao remover, remove 1 por 1.
 
 - Resolvido o problema de o inventário não fazer refresh ao adicionar um item no iventário.
+
+Progresso até - 22/05
+
+- NPCs têm nome.
+- Diálogo agora usa arrays, sem ter a necessidade de ficheiros, com mais possibilidades para certas condições.
+- Após a missão acabar, o NPC dirige-se para uma zona designada.
+
+- Missões foram criadas (1).
+- Pelo menos uma missão para ajudar um NPC onde a recompensa é uma pista. (Exp. ao completar missão ainda não implementada)
+
+- Transição para outras cenas
+- Zona Segura

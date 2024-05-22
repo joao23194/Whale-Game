@@ -6,24 +6,24 @@ using TMPro;
 
 public class player : MonoBehaviour
 {
-
     public static player Instance;
-    CharacterController characterController; //Componente que controla o jogador
+    CharacterController characterController; // Component that controls the player
 
-    public float speed = 6.0f; //Velocidade de movimento, definível no Inspector
-    public float jumpSpeed = 8.0f; //Velocidade de salto, definível no Inspector
-    public float gravity = 20.0f; //Gravidade, definível no Inspector
-    public float RotSpeed = 5.0f;
+    public float speed = 6.0f; // Movement speed, settable in the Inspector
+    public float jumpSpeed = 8.0f; // Jump speed, settable in the Inspector
+    public float gravity = 20.0f; // Gravity, settable in the Inspector
+    public float rotSpeed = 720.0f;
 
     public int Health;
     public int Exp;
     public TMP_Text HealthText;
     public TMP_Text ExpText;
-    private Vector3 moveDirection = Vector3.zero; //Vector que controla a direcção do movimento
+    private Vector3 moveDirection = Vector3.zero; // Vector that controls movement direction
+    private bool isMovementLocked = false; // Whether the player's movement is locked
 
     void Start()
     {
-        characterController = GetComponent<CharacterController>(); //Ir buscar o componente ao gameObject
+        characterController = GetComponent<CharacterController>(); // Get the component from the GameObject
     }
 
     private void Awake()
@@ -33,34 +33,53 @@ public class player : MonoBehaviour
 
     void Update()
     {
-
-        if (characterController.isGrounded) //Se a personagem estiver no chão
+        if (!isMovementLocked)
         {
-            // We are grounded, so recalculate
-            // move direction directly from axes
-
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f,
-   Input.GetAxis("Vertical")); //Ir buscar os valores do eixo horizontal (A/D ou seta esquerda/ direita) e do eixo vertical(W/ S ou seta frente e trás)
-            moveDirection *= speed; //Multiplicar este vector pela variável de velocidade definida no início do script
-            if (Input.GetButton("Jump")) //Se a pessoa carregar na tecla de saltar(barra de espaço)
+            if (characterController.isGrounded) // If the character is grounded
             {
-                moveDirection.y = jumpSpeed; //Adicionar velocidade no eixo Y, que até ao momento está definido com 0(ver moveDirection)
+                // Recalculate move direction directly from axes
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+                moveDirection *= speed; // Multiply this vector by the speed variable
+                if (Input.GetButton("Jump")) // If the jump button is pressed (spacebar)
+                {
+                    moveDirection.y = jumpSpeed; // Add speed in the Y axis
+                }
+
+                if (moveDirection != Vector3.zero)
+                {
+                    Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
+                }
             }
 
-            if (moveDirection != Vector3.zero)
-            {
-                Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, RotSpeed * Time.deltaTime);
-            }
+            // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below when the moveDirection is multiplied by deltaTime).
+            // This is because gravity should be applied as an acceleration (ms^-2)
+            moveDirection.y -= gravity * Time.deltaTime;
+
+            // Move the controller
+            characterController.Move(moveDirection * Time.deltaTime);
         }
-
-        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-        // as an acceleration (ms^-2)
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
     }
+
+    public void LockMovement()
+    {
+        isMovementLocked = true;
+        moveDirection = Vector3.zero; // Reset movement direction
+        characterController.Move(Vector3.zero); // Stop movement
+    }
+
+    public void UnlockMovement()
+    {
+        isMovementLocked = false;
+    }
+
+public void LookAt(Transform target)
+{
+    Vector3 direction = (target.position - transform.position).normalized;
+    Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotSpeed);
+}
+
 
     void MouseControl()
     {
@@ -68,8 +87,8 @@ public class player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void IncreaseHP(int HealValue)
+    public void IncreaseHP(int healValue)
     {
-        Health += HealValue;
+        Health += healValue;
     }
 }
