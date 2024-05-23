@@ -6,6 +6,14 @@ using TMPro;
 
 public class Quest : MonoBehaviour
 {
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public TextMeshProUGUI  objective;
     public Color completedColor;
     public Color activeColor;
@@ -21,6 +29,7 @@ public class Quest : MonoBehaviour
                 FinishQuest();
             gameObject.SetActive(false);
             questToActivate.SetActive(true);
+            audioManager.PlaySFX(audioManager.Quest);
         }
     }
     private void FinishQuest(){

@@ -14,4 +14,17 @@ public class AudioManager : MonoBehaviour
     public AudioClip Checkpoint;
     public AudioClip Death;
     public AudioClip OtherPlayerTouch;
+    public AudioClip Artifact;
+    public AudioClip Quest;
+
+    private void Start()
+    {
+        musicSource.clip = Background;
+        musicSource.Play();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
+    }
 }

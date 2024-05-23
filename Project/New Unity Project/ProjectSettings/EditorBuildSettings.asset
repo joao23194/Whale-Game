@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 0f73e6d7fb2baae419f5947e8a76c3b0
+  - enabled: 1
     path: Assets/Scenes/WhaleGame.unity
     guid: 45a799f6a3719144792a4be01db18809
   m_configObjects: {}
