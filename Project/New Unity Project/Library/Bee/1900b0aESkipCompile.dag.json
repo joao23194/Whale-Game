@@ -24,10 +24,10 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"D:/UNI/cg unity/2022.3.20f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -s=\"D:\\UNI\\cg unity\\2022.3.20f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"D:\\UNI\\cg unity\\2022.3.20f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"D:\\UNI\\cg unity\\2022.3.20f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"D:\\UNI\\cg unity\\2022.3.20f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"D:\\UNI\\cg unity\\2022.3.20f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -s=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\2022.3.20f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\2022.3.20f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\2022.3.20f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\2022.3.20f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\2022.3.20f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"C:\\Users\\joaop\\OneDrive\\Ambiente de Trabalho\\uni\\dj\\jogo\\Whale Game\\Whale-Game\\Project\\New Unity Project\\Library\\ScriptAssemblies\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
-        "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
-        "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
+        "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
+        "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
         "Library/ScriptAssemblies/Assembly-CSharp.dll",
         "Library/ScriptAssemblies/Unity.TextMeshPro.dll",
         "Library/ScriptAssemblies/UnityEngine.UI.dll"
@@ -54,106 +54,106 @@
   ],
   "FileSignatures": [
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.exe"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.exe"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
     },
     {
-      "File": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
+      "File": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
     },
     {
       "File": "Library/Bee/1900b0aESkipCompile-inputdata.json"
@@ -181,7 +181,7 @@
   ],
   "GlobSignatures": [
     {
-      "Path": "D:/UNI/cg unity/2022.3.20f1/Editor/Data/Tools/BuildPipeline"
+      "Path": "C:/Users/joaop/OneDrive/Ambiente de Trabalho/uni/dj/2022.3.20f1/Editor/Data/Tools/BuildPipeline"
     }
   ],
   "ContentDigestExtensions": [

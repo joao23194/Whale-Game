@@ -27,6 +27,6 @@ public class ItemPickup : MonoBehaviour
             Debug.Log("Item picked up!");
             audioManager.PlaySFX(audioManager.BrickTouch);
         }
-         if (other.CompareTag("NPC")){}
+         else{} //Isto é necessário, senão o NPC também vai se tornar capaz de apanhar itens
     }
 }

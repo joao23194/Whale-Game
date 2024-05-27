@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
 {
     public TMP_Text textComponent;
     public TMP_Text npcNameText; // Text component to display NPC's name
-    public float textSpeed;
+    public float textSpeed = 0.1f;
     public GameObject dialoguePanel; // Reference to the DialoguePanel GameObject
 
     private Dictionary<string, Queue<string>> npcDialogues = new Dictionary<string, Queue<string>>();
@@ -21,11 +21,9 @@ public class DialogueManager : MonoBehaviour
     public event Action onDialogueEnd;
 
     private bool isMovingToDesignatedArea = false; // Flag to track if NPC is moving to designated area
-
     private bool isTyping = false; // Flag to track if typing coroutine is running
     private bool textFullyDisplayed = false; // Flag to track if text is fully displayed
-
-    private bool isFirstLineDisplayed = false; // Flag to track if the first line has been displayed
+    private bool isFirstLine = true; // Flag to track if it is the first line
 
     void Start()
     {
@@ -37,38 +35,53 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.F))
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.E))
         {
-            if (!isTyping && textFullyDisplayed) // Check if not typing and text is fully displayed
+            if (!isTyping && textFullyDisplayed)
             {
                 DisplayNextLine();
             }
         }
     }
 
-    public void StartDialogue(string npcName, string[] dialogueLines, bool isMovingToDesignatedArea)
+public void StartDialogue(string npcName, string[] dialogueLines, bool isMovingToDesignatedArea)
+{
+    if (!isDialogueActive)
     {
-        if (!isDialogueActive)
+        if (!npcDialogues.ContainsKey(npcName))
         {
-            if (!npcDialogues.ContainsKey(npcName))
-            {
-                Queue<string> dialogueQueue = new Queue<string>(dialogueLines);
-                npcDialogues.Add(npcName, dialogueQueue);
-            }
-            currentNPC = npcName; // Set current NPC
-            isDialogueActive = true;
-            dialoguePanel.SetActive(true); // Activate the DialoguePanel GameObject
-            npcNameText.text = npcName; // Display the NPC's name
-            this.isMovingToDesignatedArea = isMovingToDesignatedArea; // Set NPC movement state
+            Queue<string> dialogueQueue = new Queue<string>(dialogueLines);
+            npcDialogues.Add(npcName, dialogueQueue);
+        }
+        currentNPC = npcName;
+        isDialogueActive = true;
+        npcNameText.text = npcName; // Display the NPC's name
+        this.isMovingToDesignatedArea = isMovingToDesignatedArea;
+        isFirstLine = true; // Reset the first line flag
 
-            // Display the first line of dialogue immediately
+        if (isFirstLine)
+        {
+            // Display the first line immediately
             DisplayNextLine();
+            StartCoroutine(DelayNextLine());
         }
         else
         {
-            Debug.LogWarning("Dialogue already started for NPC: " + npcName);
+            DisplayNextLine();
         }
     }
+    else
+    {
+        Debug.LogWarning("Dialogue already started for NPC: " + npcName);
+    }
+}
+
+IEnumerator DelayNextLine()
+{
+    yield return new WaitForSeconds(0.01f);
+    DisplayNextLine();
+}
+
 
     void DisplayNextLine()
     {
@@ -77,15 +90,14 @@ public class DialogueManager : MonoBehaviour
             if (npcDialogues[currentNPC].Count > 0)
             {
                 string line = npcDialogues[currentNPC].Dequeue();
-                
-                if (!isFirstLineDisplayed)
+                if (isFirstLine)
                 {
-                    // Display the first line character by character
-                    StartCoroutine(TypeFirstLine(line));
+                    textComponent.text = line; // Display the first line immediately
+                    textFullyDisplayed = true; // Set the text fully displayed flag
+                    isFirstLine = false; // Reset the first line flag
                 }
                 else
                 {
-                    // Display subsequent lines normally
                     StartCoroutine(TypeLine(line));
                 }
             }
@@ -96,50 +108,29 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    IEnumerator TypeFirstLine(string line)
-    {
-        isTyping = true; // Set typing flag to true
-
-        StringBuilder stringBuilder = new StringBuilder(); // Use StringBuilder to efficiently build the line
-
-        foreach (char c in line.ToCharArray())
-        {
-            stringBuilder.Append(c); // Append each character to the StringBuilder
-            textComponent.text = stringBuilder.ToString(); // Update the text with the current content of the StringBuilder
-            yield return new WaitForSeconds(0.1f); // Delay for character by character display
-        }
-
-        isTyping = false; // Reset typing flag
-        textFullyDisplayed = true; // Set text fully displayed flag after typing completes
-        isFirstLineDisplayed = true; // Set the flag to indicate that the first line has been displayed
-
-        // Display the second line after a very short delay
-        yield return new WaitForSeconds(0.01f);
-        DisplayNextLine();
-    }
-
     IEnumerator TypeLine(string line)
     {
-        isTyping = true; // Set typing flag to true
-        textComponent.text = string.Empty; // Clear the text component for the new line
+        isTyping = true;
+        textFullyDisplayed = false; // Reset the textFullyDisplayed flag
+        textComponent.text = string.Empty;
 
-        StringBuilder stringBuilder = new StringBuilder(); // Use StringBuilder to efficiently build the line
-
+        StringBuilder stringBuilder = new StringBuilder();
         foreach (char c in line.ToCharArray())
         {
-            stringBuilder.Append(c); // Append each character to the StringBuilder
-            textComponent.text = stringBuilder.ToString(); // Update the text with the current content of the StringBuilder
+            stringBuilder.Append(c);
+            textComponent.text = stringBuilder.ToString();
             yield return new WaitForSeconds(textSpeed);
         }
 
-        isTyping = false; // Reset typing flag
-        textFullyDisplayed = true; // Set text fully displayed flag after typing completes
+        isTyping = false;
+        textFullyDisplayed = true; // Set the textFullyDisplayed flag after typing completes
     }
+
 
     void EndDialogue()
     {
         isDialogueActive = false;
-        npcDialogues.Remove(currentNPC); // Remove the dialogue from the dictionary
+        npcDialogues.Remove(currentNPC);
         currentNPC = null;
         textComponent.text = string.Empty;
         npcNameText.text = string.Empty;
@@ -147,13 +138,10 @@ public class DialogueManager : MonoBehaviour
 
         player.Instance.UnlockMovement(); // Unlock the player's movement
 
-        if (!isMovingToDesignatedArea) // Invoke event only if NPC is not moving to designated area
+        if (!isMovingToDesignatedArea && onDialogueEnd != null)
         {
-            if (onDialogueEnd != null)
-            {
-                onDialogueEnd.Invoke(); // Invoke the event
-            }
+            onDialogueEnd.Invoke(); // Invoke the event if NPC is not moving to a designated area
         }
-        textFullyDisplayed = false; // Reset text fully displayed flag
+        textFullyDisplayed = false;
     }
 }
