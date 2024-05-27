@@ -334,6 +334,7 @@
 "Assets/Scripts/ArtifactPickup.cs"
 "Assets/Scripts/AudioManager.cs"
 "Assets/Scripts/Dialogue.cs"
+"Assets/Scripts/FadeManager.cs"
 "Assets/Scripts/InventoryItemController.cs"
 "Assets/Scripts/InventoryManager.cs"
 "Assets/Scripts/ItemController.cs"
@@ -341,8 +342,11 @@
 "Assets/Scripts/ItemPickup.cs"
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/NpcBehaviour.cs"
+"Assets/Scripts/NPCMovement.cs"
 "Assets/Scripts/player.cs"
 "Assets/Scripts/Quest.cs"
+"Assets/Scripts/SceneManagerBehaviour.cs"
+"Assets/Scripts/SmoothCameraFollow.cs"
 -langversion:9.0
 
 /deterministic
