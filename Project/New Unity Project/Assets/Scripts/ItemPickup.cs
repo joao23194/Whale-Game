@@ -21,11 +21,12 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) ;
+        if (other.CompareTag("Player"))
         {
             Pickup();
             Debug.Log("Item picked up!");
             audioManager.PlaySFX(audioManager.BrickTouch);
         }
+         else{} //Isto é necessário, senão o NPC também vai se tornar capaz de apanhar itens
     }
 }

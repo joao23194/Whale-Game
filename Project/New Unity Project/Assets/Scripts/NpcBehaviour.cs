@@ -15,6 +15,7 @@ public class NpcBehaviour : MonoBehaviour
     public float moveSpeed = 3f; // Movement speed
     public bool questActive = false; // Indicates whether the associated quest is active
     public Quest associatedQuest;
+    public GameObject dialoguePanel; // Reference to the DialoguePanel GameObject
 
     // Other existing code
 
@@ -48,10 +49,13 @@ public class NpcBehaviour : MonoBehaviour
 
         if (isPlayerNear)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            LookAtPlayer(); // Make the NPC look at the player when near
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (dialogueManager != null && playerScript != null)
                 {
+                    dialoguePanel.SetActive(true); // Activate the DialoguePanel GameObject
                     playerScript.LockMovement();
                     playerScript.LookAt(transform); // Make the player look at the NPC
                     dialogueManager.StartDialogue(npcName, dialogueLines, false);
@@ -66,17 +70,17 @@ public class NpcBehaviour : MonoBehaviour
     }
 
     public bool CheckQuestActive()
-{
-    if (associatedQuest != null)
     {
-        return associatedQuest.IsQuestActive() && associatedQuest.isQuestFinish;
+        if (associatedQuest != null)
+        {
+            return associatedQuest.IsQuestActive() && associatedQuest.isQuestFinish;
+        }
+        else
+        {
+            Debug.LogError("Associated quest not set properly for NPC: " + gameObject.name);
+            return false;
+        }
     }
-    else
-    {
-        Debug.LogError("Associated quest not set properly for NPC: " + gameObject.name);
-        return false;
-    }
-}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -158,7 +162,6 @@ public class NpcBehaviour : MonoBehaviour
         }
     }
 
-
     private void StartFollowingPlayer()
     {
         if (!moveToDesignatedArea && !IsAtDesignatedArea()) // Ensure NPC doesn't start following if it is supposed to move to the designated area or already at the designated area
@@ -178,8 +181,6 @@ public class NpcBehaviour : MonoBehaviour
         }
         return false;
     }
-
-
 
     public void StopFollowingPlayer()
     {
