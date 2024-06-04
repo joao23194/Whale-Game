@@ -1,3 +1,0 @@
-"Olá."
-"Este é um diálogo de NPC através de ficheiro."
-"Cada NPC tem 1 ou mais Ficheiros de diálogo."
