@@ -1,1 +1,0 @@
-Esta pasta irá conter as cutscenes
